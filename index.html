@@ -315,6 +315,10 @@ function applyLang(lang) {
             el.textContent = translations[lang][key];
         }
     });
+
+    document.querySelectorAll(".lang-switch button").forEach(btn => {
+        btn.classList.toggle("active", btn.textContent.toLowerCase() === lang);
+    });
 }
 
 applyLang(localStorage.getItem("lang") || "en");
