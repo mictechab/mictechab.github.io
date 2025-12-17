@@ -1,190 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mictech Ab – Automation & Engineering</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mictech Ab provides automation, PLC, electrical and marine engineering services.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mictech</title>
 
-    <style>
-        :root {
-            --text: #1a1a1a;
-            --muted: #555;
-            --accent: #004b8d;
-            --bg: #ffffff;
-            --border: #e0e0e0;
-        }
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#5a5a5a;
+      --line:#e9e9e9;
+      --max: 980px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0c0c0c;
+        --text:#f4f4f4;
+        --muted:#b9b9b9;
+        --line:#242424;
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.6;
-        }
+    header{
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand img{height:36px}
+    .lang button{
+      background:none;
+      border:1px solid var(--line);
+      padding:4px 10px;
+      margin-left:6px;
+      cursor:pointer;
+      color:var(--muted);
+    }
+    .lang button.active{
+      color:var(--text);
+      border-color:var(--text);
+    }
 
-        header {
-            padding: 60px 20px 40px;
-            border-bottom: 1px solid var(--border);
-        }
+    h1{font-size:clamp(32px,4vw,42px); margin:0}
+    h2{font-size:18px; margin:0 0 8px}
+    p{margin:6px 0; color:var(--muted)}
+    section{padding:28px 0; border-top:1px solid var(--line)}
 
-        main {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            font-size: 2.4rem;
-            margin: 0 0 10px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 60px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 6px;
-        }
-
-        h3 {
-            margin-top: 30px;
-        }
-
-        p {
-            max-width: 780px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.1rem;
-            max-width: 780px;
-        }
-
-        .columns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .box {
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: 6px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            margin-top: 80px;
-            padding: 20px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text: #eaeaea;
-                --muted: #aaa;
-                --bg: #0f1216;
-                --border: #2a2f36;
-                --accent: #4ea1ff;
-            }
-        }
-    </style>
+    footer{
+      padding:20px 0;
+      border-top:1px solid var(--line);
+      font-size:13px;
+      color:var(--muted);
+    }
+  </style>
 </head>
 
 <body>
-
 <header>
-    <main>
-        <h1>Mictech Ab</h1>
-        <p class="subtitle">
-            Automation, PLC, electrical and marine engineering services.
-        </p>
-    </main>
-</header>
-
-<main>
-
-    <h2>About</h2>
-    <p>
-        Mictech Ab is a small engineering consultancy providing technical design,
-        implementation and commissioning services within automation and electrical systems.
-        The focus is on robust, well-documented solutions for marine and industrial applications.
-    </p>
-
-    <h2>Services</h2>
-    <div class="columns">
-        <div class="box">
-            <h3>Automation & PLC</h3>
-            <ul>
-                <li>PLC programming and commissioning</li>
-                <li>System architecture and I/O design</li>
-                <li>Diagnostics, alarms and monitoring</li>
-                <li>Legacy system support</li>
-            </ul>
-        </div>
-
-        <div class="box">
-            <h3>Electrical Engineering</h3>
-            <ul>
-                <li>Electrical system design</li>
-                <li>Power distribution and protection</li>
-                <li>Control panels and schematics</li>
-                <li>Documentation and FAT/SAT support</li>
-            </ul>
-        </div>
-
-        <div class="box">
-            <h3>Marine & Industrial</h3>
-            <ul>
-                <li>Marine automation systems</li>
-                <li>Monitoring and safety systems</li>
-                <li>Integration of sensors and field devices</li>
-                <li>Commissioning and troubleshooting</li>
-            </ul>
-        </div>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="assets/images/logo.svg" alt="Mictech logo">
     </div>
 
-    <h2>Working Method</h2>
+    <div class="lang">
+      <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
+      <button onclick="setLang('sv')" id="btn-sv">SV</button>
+      <button onclick="setLang('fi')" id="btn-fi">FI</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ENGLISH -->
+  <div data-lang="en">
+    <h1>Automation & control engineering</h1>
     <p>
-        Emphasis is placed on clarity, maintainability and reliability.
-        Solutions are developed with long-term operation, serviceability and documentation in mind.
-        Close cooperation with yards, suppliers and end customers is a key part of each project.
+      Mictech provides engineering services for automation, control systems,
+      integration, and commissioning.
     </p>
 
-    <h2>Contact</h2>
-    <p>
-        <strong>Mictech Ab</strong><br>
-        Contact person: Mikael Johansson<br>
+    <section>
+      <h2>Services</h2>
+      <p>PLC programming, system integration, HMI development, diagnostics, and documentation.</p>
+    </section>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        Mictech is a small engineering company focused on robust, maintainable,
+        and well-documented technical solutions.
+      </p>
+    </section>
+    
+    <section>
+      <h2>Contact</h2>
+      <p>
         Email: <a href="mailto:mikael.johansson@multi.fi">mikael.johansson@multi.fi</a><br>
         Phone: <a href="tel:+358447210294">+358 44 721 0294</a>
+      </p>
+    </section>
+  </div>
+
+  <!-- SWEDISH -->
+  <div data-lang="sv" hidden>
+    <h1>Automation och styrsystem</h1>
+    <p>
+      Mictech erbjuder ingenjörstjänster inom automation,
+      styrsystem, integration och driftsättning.
     </p>
+
+    <section>
+      <h2>Tjänster</h2>
+      <p>PLC-programmering, systemintegration, HMI, diagnostik och dokumentation.</p>
+    </section>
+
+    <section>
+      <h2>Om Mictech</h2>
+      <p>
+        Mictech är ett litet ingenjörsföretag med fokus på
+        driftsäkra, underhållsvänliga och tydligt dokumenterade system.
+      </p>
+    </section>
+      
+    <section>
+      <h2>Kontakt</h2>
+      <p>
+        E-post: <a href="mailto:mikael.johansson@multi.fi">mikael.johansson@multi.fi</a><br>
+        Telefon: <a href="tel:+358447210294">+358 44 721 0294</a>
+      </p>
+    </section>
+  </div>
+
+  <!-- FINNISH -->
+  <div data-lang="fi" hidden>
+    <h1>Automaatio- ja ohjausjärjestelmät</h1>
+    <p>
+      Mictech tarjoaa automaatio- ja ohjausjärjestelmien
+      suunnittelu-, integraatio- ja käyttöönottopalveluita.
+    </p>
+
+    <section>
+      <h2>Palvelut</h2>
+      <p>PLC-ohjelmointi, järjestelmäintegraatio, HMI, diagnostiikka ja dokumentointi.</p>
+    </section>
+
+    <section>
+      <h2>Tietoa Mictechistä</h2>
+      <p>
+        Mictech on pieni insinööritoimisto, joka keskittyy
+        luotettaviin, selkeisiin ja helposti ylläpidettäviin ratkaisuihin.
+      </p>
+    </section>
+
+    <section>
+      <h2>Yhteystiedot</h2>
+      <p>
+        Sähköposti: <a href="mailto:mikael.johansson@multi.fi">mikael.johansson@multi.fi</a><br>
+        Puhelin: <a href="tel:+358447210294">+358 44 721 0294</a>
+      </p>
+    </section>
+  </div>
 
 </main>
 
-<footer>
-    © Mictech Ab
+<footer class="wrap">
+  © <span id="year"></span> Mictech
 </footer>
 
+<script>
+  const sections = document.querySelectorAll("[data-lang]");
+  const buttons = document.querySelectorAll(".lang button");
+
+  function setLang(lang){
+    sections.forEach(s => s.hidden = s.dataset.lang !== lang);
+    buttons.forEach(b => b.classList.toggle("active", b.id === "btn-" + lang));
+    document.documentElement.lang = lang;
+    localStorage.setItem("lang", lang);
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  setLang(localStorage.getItem("lang") || "en");
+</script>
 </body>
 </html>
-
