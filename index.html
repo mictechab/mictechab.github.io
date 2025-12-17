@@ -9,7 +9,7 @@
     <style>
         :root {
             --text: #1a1a1a;
-            --muted: #555;
+            --muted: #666;
             --accent: #004b8d;
             --bg: #ffffff;
             --border: #e0e0e0;
@@ -23,46 +23,42 @@
             line-height: 1.6;
         }
 
+        /* ================= HEADER ================= */
+
         header {
+            position: relative; /* anchor for language buttons */
             border-bottom: 1px solid var(--border);
-            padding: 40px 20px;
+            padding: 40px 20px 32px;
         }
 
-        .header-left img.logo {
-            height: 72px;
-            width: auto;
-        }
-        
-        .header-center {
-            min-width: 0;
-        }
-        
-        .header-right {
-            white-space: nowrap;
-        }
-
-        @media (max-width: 600px) {
-            .header-inner {
-                grid-template-columns: auto;
-                text-align: center;
-            }
-        
-            .header-right {
-                margin-top: 12px;
-            }
-        }
-        
-        .brand {
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 24px;
         }
 
-        .brand img.logo {
-            height: 72px;        /* try 72–88px depending on taste */
+        .logo {
+            height: 76px;
             width: auto;
         }
-        
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.25;
+            max-width: 720px;
+        }
+
+        /* ---------- Language switch (FIXED POSITION) ---------- */
+
+        .lang-switch {
+            position: absolute;
+            top: 24px;
+            right: 20px;
+            white-space: nowrap;
+        }
 
         .lang-switch button {
             background: var(--bg);
@@ -74,7 +70,7 @@
             font-size: 0.9rem;
             border-radius: 4px;
         }
-        
+
         .lang-switch button:hover {
             border-color: var(--accent);
             color: var(--accent);
@@ -86,16 +82,12 @@
             border-color: var(--accent);
         }
 
+        /* ================= MAIN CONTENT ================= */
 
         main {
             max-width: 960px;
             margin: 0 auto;
             padding: 40px 20px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2rem;
         }
 
         h2 {
@@ -108,15 +100,6 @@
         p {
             max-width: 780px;
         }
-
-        .subtitle {
-            color: var(--text);
-            font-size: 1.4rem;   /* try 1.2–1.4rem */
-            font-weight: 500;
-            line-height: 1.3;
-            max-width: 780px;
-        }
-
 
         .columns {
             display: grid;
@@ -157,6 +140,8 @@
             font-size: 0.9rem;
         }
 
+        /* ================= DARK MODE ================= */
+
         @media (prefers-color-scheme: dark) {
             :root {
                 --text: #eaeaea;
@@ -166,28 +151,40 @@
                 --accent: #4ea1ff;
             }
         }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+            header {
+                padding-top: 56px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lang-switch {
+                top: 12px;
+                right: 12px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-<div class="header-inner">
-    <div class="header-left">
-        <img src="assets/images/logo.svg" alt="Mictech Ab logo" class="logo">
-    </div>
-
-    <div class="header-center">
-        <div class="subtitle" data-i18n="subtitle"></div>
-    </div>
-
-    <div class="header-right lang-switch">
+    <div class="lang-switch">
         <button onclick="setLang('en')">EN</button>
         <button onclick="setLang('sv')">SV</button>
         <button onclick="setLang('fi')">FI</button>
     </div>
-</div>
 
+    <div class="header-inner">
+        <img src="assets/images/logo.svg" alt="Mictech Ab logo" class="logo">
+        <div class="subtitle" data-i18n="subtitle"></div>
+    </div>
 </header>
 
 <main>
@@ -259,7 +256,7 @@ const translations = {
 
         method_title: "Working Method",
         method_text:
-            "Emphasis is placed on clarity, reliability and long-term maintainability. Solutions are developed with structured documentation and close cooperation with customers and suppliers.",
+            "Emphasis is placed on clarity, reliability and long-term maintainability. Solutions are developed with structured documentation and close cooperation with customers.",
 
         contact_title: "Contact",
         contact_person: "Contact person"
@@ -287,7 +284,7 @@ const translations = {
 
         method_title: "Arbetssätt",
         method_text:
-            "Arbetet präglas av tydlighet, driftsäkerhet och långsiktig förvaltbarhet. Lösningar tas fram med strukturerad dokumentation och nära samarbete med kund och leverantörer.",
+            "Arbetet präglas av tydlighet, driftsäkerhet och långsiktig förvaltbarhet.",
 
         contact_title: "Kontakt",
         contact_person: "Kontaktperson"
@@ -297,7 +294,7 @@ const translations = {
         subtitle: "Automaatio- ja sähkösuunnittelu",
         about_title: "Tietoa yrityksestä",
         about_text:
-            "Mictech Ab on insinööritoimisto, joka tarjoaa automaatio- ja sähkösuunnittelua sekä käyttöönottoa. Toiminnan painopiste on luotettavissa, ylläpidettävissä ja hyvin dokumentoiduissa teknisissä ratkaisuissa.",
+            "Mictech Ab on insinööritoimisto, joka tarjoaa automaatio- ja sähkösuunnittelua sekä käyttöönottoa. Toiminnan painopiste on luotettavissa ja hyvin dokumentoiduissa teknisissä ratkaisuissa.",
 
         services_title: "Palvelut",
 
@@ -311,11 +308,11 @@ const translations = {
         svc_elec_1: "Sähköjärjestelmien suunnittelu",
         svc_elec_2: "Sähkönjakelu ja suojaus",
         svc_elec_3: "Ohjauskeskukset ja kaaviot",
-        svc_elec_4: "Dokumentointi sekä FAT/SAT-tuki",
+        svc_elec_4: "Dokumentointi ja FAT/SAT-tuki",
 
         method_title: "Toimintatapa",
         method_text:
-            "Työssä korostuvat selkeys, luotettavuus ja pitkäaikainen ylläpidettävyys. Ratkaisut toteutetaan huolellisesti dokumentoiden ja tiiviissä yhteistyössä asiakkaiden ja toimittajien kanssa.",
+            "Työssä korostuvat selkeys, luotettavuus ja pitkäaikainen ylläpidettävyys.",
 
         contact_title: "Yhteystiedot",
         contact_person: "Yhteyshenkilö"
@@ -329,7 +326,7 @@ function setLang(lang) {
 
 function applyLang(lang) {
     document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
+        const key = el.dataset.i18n;
         if (translations[lang][key]) {
             el.textContent = translations[lang][key];
         }
