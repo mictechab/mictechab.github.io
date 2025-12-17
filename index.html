@@ -28,15 +28,30 @@
             padding: 40px 20px;
         }
 
-        .header-inner {
-            max-width: 960px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+        .header-left img.logo {
+            height: 72px;
+            width: auto;
+        }
+        
+        .header-center {
+            min-width: 0;
+        }
+        
+        .header-right {
+            white-space: nowrap;
         }
 
+        @media (max-width: 600px) {
+            .header-inner {
+                grid-template-columns: auto;
+                text-align: center;
+            }
+        
+            .header-right {
+                margin-top: 12px;
+            }
+        }
+        
         .brand {
             display: flex;
             align-items: center;
@@ -157,18 +172,22 @@
 <body>
 
 <header>
-    <div class="header-inner">
-        <div class="brand">
-            <img src="assets/images/logo.svg" alt="Mictech Ab logo" class="logo">
-            <div class="subtitle" data-i18n="subtitle"></div>
-        </div>
-
-        <div class="lang-switch">
-            <button onclick="setLang('en')">EN</button>
-            <button onclick="setLang('sv')">SV</button>
-            <button onclick="setLang('fi')">FI</button>
-        </div>
+<div class="header-inner">
+    <div class="header-left">
+        <img src="assets/images/logo.svg" alt="Mictech Ab logo" class="logo">
     </div>
+
+    <div class="header-center">
+        <div class="subtitle" data-i18n="subtitle"></div>
+    </div>
+
+    <div class="header-right lang-switch">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('sv')">SV</button>
+        <button onclick="setLang('fi')">FI</button>
+    </div>
+</div>
+
 </header>
 
 <main>
