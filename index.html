@@ -43,8 +43,17 @@
             gap: 16px;
         }
 
-        .brand img {
-            height: 48px;
+        .brand img.logo {
+            height: 72px;        /* try 72–88px depending on taste */
+            width: auto;
+        }
+        
+        .brand {
+            align-items: flex-start;
+        }
+        
+        .subtitle {
+            margin-top: 6px;
         }
 
         .lang-switch button {
@@ -144,11 +153,8 @@
 <header>
     <div class="header-inner">
         <div class="brand">
-            <img src="assets/images/logo.svg" alt="Mictech Ab logo">
-            <div>
-                <h1>Mictech Ab</h1>
-                <div class="subtitle" data-i18n="subtitle"></div>
-            </div>
+            <img src="assets/images/logo.svg" alt="Mictech Ab logo" class="logo">
+            <div class="subtitle" data-i18n="subtitle"></div>
         </div>
 
         <div class="lang-switch">
