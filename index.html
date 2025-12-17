@@ -50,18 +50,27 @@
         
 
         .lang-switch button {
-            background: none;
+            background: var(--bg);
+            color: var(--text);
             border: 1px solid var(--border);
             padding: 6px 10px;
             margin-left: 6px;
             cursor: pointer;
             font-size: 0.9rem;
+            border-radius: 4px;
         }
-
+        
         .lang-switch button:hover {
             border-color: var(--accent);
             color: var(--accent);
         }
+
+        .lang-switch button.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
 
         main {
             max-width: 960px;
